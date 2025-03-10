@@ -1,0 +1,196 @@
+# ================= #
+# Personal Snippets # 
+# ================= #
+
+
+
+####################### Parenthesis and Brackets
+
+snippet () "<> parenthesis" i
+($1)$0
+endsnippet
+
+snippet [] "<> square brackets" i
+[$1]$0
+endsnippet
+
+snippet {} "<> curly brackets" i
+\{$1`!p
+if t[1] == "\n":
+	snip.rv = ""
+else:
+	snip.rv = "}"`$0`!p
+if t[1] == "\n":
+	snip.rv = "\n}"
+else:
+	snip.rv = ""`
+endsnippet
+
+
+
+####################### Include
+
+snippet incs "<> include - standard" b
+#include <${1:stdio}.h>
+endsnippet
+
+snippet incl "<> include - local" b
+#include "${1:stdio}.h"
+endsnippet
+
+
+
+####################### Macros
+
+snippet def "<> #define..." b
+#define $0
+endsnippet
+
+
+
+####################### Loops
+
+snippet for "<> for" b
+for (${1:<start>}; ${2:<stop>}; ${3:<update>}) \{
+	$0
+\}
+endsnippet
+
+snippet forl "<> for one line" b
+for (${1:<start>}; ${2:<stop>}; ${3:<update>}) $4;$0
+endsnippet
+
+snippet fori "<> for(i)" b
+for (int i = ${1:<start>}; i < ${2:<stop>}; i${3:++}) \{
+	$0
+\}
+endsnippet
+
+snippet foril "<> for(i) one line" b
+for (int i = ${1:<start>}; i < ${2:<stop>}; i${3:++}) $4;$0
+endsnippet
+
+snippet forin "<> for(i,n)" b
+for (int ${1:i} = 0; $1 < ${2:n}; ++$1) \{
+	$0
+\}
+endsnippet
+
+snippet forinl "<> for(i,n) one line" b
+for (int ${1:i} = 0; $1 < ${2:n}; ++$1) $4;$0
+endsnippet
+
+snippet wh "<> while" b
+while (${1:true}) \{
+	$0
+\}
+endsnippet
+
+snippet whl "<> while one line" b
+while (${1:true}) $2;$0
+endsnippet
+
+
+
+####################### Branching
+
+snippet if "<> if" b
+if (${1:true}) \{
+	$0
+\}
+endsnippet
+
+snippet ifl "<> if one line" b
+if (${1:true}) $2;$0
+endsnippet
+
+snippet eli "<> else if" w
+else if (${1:true}) \{
+	$0
+\}
+endsnippet
+
+snippet elil "<> else if one line" w
+else if (${1:true}) $2;$0
+endsnippet
+
+snippet else "<> else" w
+else \{
+	$0
+\}
+endsnippet
+
+
+
+####################### Pointers
+
+snippet fre "<> free(pointer)" b
+free(${1:ptr}); $1 = NULL;
+endsnippet
+
+####################### Functions
+# Source: github.com/sirver/ultisnips/blob/master/doc/examples/tabstop-generation/README.md
+
+global !p
+def argument_tabstop(tabstop_number):
+	return "${" + str(tabstop_number) + ":<arg_type>} ${" + str(tabstop_number + 1) + ":<arg_name>}"
+def argument_tabstops(snip, mode):
+	argc = int(snip.buffer[snip.line].strip())
+	snip.buffer[snip.line] = ""
+	tabstops = ", ".join([argument_tabstop(2 * (i + 1) + 1) for i in range(argc)])
+	if (mode == "definition"):
+		body = "${1:<return_type>} ${2:<function_name>}(" + tabstops + ") \\{\n" + "\t$0\n" + "\\}"
+	elif (mode == "declaration"):
+		body = "${1:<return_type>} ${2:<function_name>}(" + tabstops + ");$0"
+	else:
+		# For the moment, simply assume declaration is the default
+		body = "${1:<return_type>} ${2:<function_name>}(" + tabstops + ");$0"
+
+	snip.expand_anon(body)
+endglobal
+
+post_jump "argument_tabstops(snip, 'definition')"
+snippet '^fun(\d+)' "<> function" r
+`!p snip.rv=match.group(1)`
+endsnippet
+
+snippet fun "<> function" b
+${1:<return_type>} ${2:<funcion_name>}(${3:<args>}) \{
+	$0
+\}
+endsnippet
+
+
+post_jump "argument_tabstops(snip, 'declaration')"
+snippet '^fund(\d+)' "<> function declaration" r
+`!p snip.rv=match.group(1)`
+endsnippet
+
+snippet fund "<> function declaration" b
+${1:<return_type>} ${2:<funcion_name>}(${3:<args>});$0
+endsnippet
+
+
+####################### Input and Output
+
+snippet pri "<> printf" w
+printf("${1:%s}\n", $2);$0
+endsnippet
+
+snippet sca "<> scanf" w
+scanf("${1:%s}\n", $2);$0
+endsnippet
+
+
+#######################  Structures
+snippet st "<> structure" b
+struct ${1:<struct_name>} \{
+	$0
+\};
+endsnippet
+
+snippet sttd "<> typedef structure" b
+typedef struct \{
+	$0
+\} ${1:<struct_name>};
+endsnippet

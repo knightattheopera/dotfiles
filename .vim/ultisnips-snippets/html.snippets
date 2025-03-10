@@ -1,0 +1,15 @@
+snippet tag "HTML Tag" b
+<${1:name}>
+	$2
+</$1>$0
+endsnippet
+
+snippet atag "HTML Tag with attributes" b
+<${1:name} ${2:attributes}>
+	$3
+</$1>$0
+endsnippet
+
+snippet itag "Inline HTML Tag" b
+<${1:name}>$2</$1>$0
+endsnippet

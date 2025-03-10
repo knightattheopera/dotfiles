@@ -1,0 +1,2 @@
+######### IGNORE THE FLUTTER TEST DIRECTORY
+- drafts/flutter-test/**

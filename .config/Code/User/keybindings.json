@@ -1,0 +1,8 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+e ctrl+b",
+        "command": "notebook.cell.executeCellAndBelow",
+        "when": "notebookMissingKernelExtension && notebookCellType == 'code' || notebookCellType == 'code' && notebookKernelCount > 0 || notebookCellType == 'code' && notebookKernelSourceCount > 0"
+    }
+]

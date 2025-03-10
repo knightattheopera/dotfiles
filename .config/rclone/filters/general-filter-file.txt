@@ -1,0 +1,63 @@
+######### MACOS STUFF
+
+- **/.DS_STORE
+
+######### GENERAL FILES
+
+- **.lock
+- **.log
+- **.class
+
+######### VSCODE 
+
+- .vscode/**
+
+######### DUNE 
+
+- _opam/**
+- _build/**
+
+######### VIM 
+
+- **.swp
+
+######### INTELLIJ 
+
+- .idea/**
+- **.iml
+
+######### NODEJS 
+
+- node_modules/**
+
+######### CMAKE 
+
+- build/**
+- CMakeFiles/**
+- **/CMakeCache.txt
+
+
+######### C
+
+- **.o
+
+######### PYTHON 
+
+- .venv/**
+- __pycache__/**
+
+######### GIT
+
+- .git/**
+- **/.gitignore
+- .github/**
+
+######### SCALA
+
+- .bloop/**
+- .metals/**
+- .bsp/**
+
+######### ANDROID
+
+- .gradle/**

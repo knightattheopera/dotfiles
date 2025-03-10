@@ -1,0 +1,70 @@
+priority -1
+
+extends c
+
+# To overwrite parent filetype
+priority 0
+
+
+
+####################### Include
+
+snippet inc "<> include - standard" b
+#include <${1:stdio}>
+endsnippet
+
+
+####################### Loops
+
+snippet fora "<> for element in iterator" b
+for (${1:auto} ${2:a} : ${3:v}) \{
+	$0
+\}
+endsnippet
+
+snippet foral "<> for element in iterator one line" b
+for (${1:auto} ${2:a} : ${3:v}) $4;$0
+endsnippet
+
+
+
+####################### Vectors
+
+snippet vector "<> vector" w
+std::vector<${1:int}> v$0;
+endsnippet
+
+snippet begend "<> begin ... end" w
+${1:v}.begin(), $1.end()
+endsnippet
+
+snippet fill "<> fill" w
+std::fill(${1:v}.begin(), $1.end());
+endsnippet
+
+snippet iota "<> iota" w
+std::iota(${1:v}.begin(), $1.end(), ${2:<start>});
+endsnippet
+
+snippet vpushb "<> vector push back" w
+${1:v}.push_back(${2:<val>});$0
+endsnippet
+
+
+####################### Input and Output
+
+snippet cout "<> cout" w
+std::cout << $1;$0
+endsnippet
+
+snippet cin "<> cin" w
+std::cin >> $1;$0
+endsnippet
+
+snippet cget "<> cin get" w
+std::cin.get();$0
+endsnippet
+
+snippet getl "<> get line" w
+std::getline(std::cin, ${1:s});$0
+endsnippet

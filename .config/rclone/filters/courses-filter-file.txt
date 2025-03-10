@@ -1,0 +1,63 @@
+
+# 🗄 Sciences Po
++ /sciences-po/**
+
+# 🗄 CS-300: Data-intensive Systems
++ /archive/cs300/**
+
+# 📽 CS-302: Parallelism and Concurrency in Software
++ /cs320/**
+
+# 🗄 CS-311: The Software Enterprise: from ideas to products
+- /archive/cs311/echo/**
++ /archive/cs311/**
+
+# 🗄 CS-320: Computer Language Processing
+- /archive/cs320/project/project/**
+- /archive/cs320/project/target/**
+- /archive/cs320/labs/*/project/**
+- /archive/cs320/labs/*/target/**
+- /archive/cs320/labs/project/**
+- /archive/cs320/labs/target/**
++ /archive/cs320/**
+
+# 🗄 CS-330: Artificial Intelligence
++ /archive/cs330/**
+
+# 🗄 CS-341: Introduction to Computer Graphics
++ /archive/cs341/**
+
+# 🗄 CS-401: Applied Data Analysis
++ /archive/cs401/project/data/README.md
++ /archive/cs401/project/data/download_linux_or_macos.sh
+- /archive/cs401/project/data/**
++ /archive/cs401/**
+
+# 🗄 CS-433: Machine Learning
+- /archive/cs433/milvus-bootcamp/**
+- /archive/cs433/mmore/**
+- /archive/cs433/project-2/**
+- /archive/cs433/visium-rag-workshop-2024/**
++ /archive/cs433/**
+
+# 📽 CS-448: Sublinear Algorithms for Big Data Analysis
++ /cs448/**
+
+# 🗄 CS-450: Algorithms II
++ /archive/cs450/**
+
+# 📽 CS-460: Systems for data management and data science
++ /cs460/**
+
+# 📽 CS-552: Modern Natural Language Processing
+- /cs552/mock-project/**
++ /cs552/**
+
+# 🗄 HUM-337
++ /archive/hum337/**
+
+# 🗄 HUM-429
++ /archive/hum429/**
+
+# Remove everything else
+- **

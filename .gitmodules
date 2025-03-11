@@ -4,3 +4,6 @@
 [submodule ".vim/pack/vendor/start/ultisnips"]
 	path = .vim/pack/vendor/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/pack/vendor/start/vim-airline"]
+	path = .vim/pack/vendor/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git

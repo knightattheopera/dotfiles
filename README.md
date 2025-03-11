@@ -4,35 +4,93 @@ My personal configuration files.
 
 Inspired by [mitxela](https://mitxela.com/projects/dotfiles_management).
 
-Disclaimer: despite my best efforts, this repository is probably not suited for use.
+Disclaimer: this repository is for personal use.
+The configuration files are most likely appropriate for any Debian-based Linux distribution,
+but I have only tested them on my personal computer, so there are no guarantees.
 
-## Managing vim plugins via git submodules
+## Managing `vim` plugins via git submodules
 
-This repository uses submodules to manage vim plugins.
+This repository uses submodules to manage `vim` plugins.
 See this [guide on submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) if you want to get a better understanding of the subject.
-
-
 
 ## Cloning this repository
 
-For the moment, this guide is pure speculation, as I haven't been able to test it.
+To clone this directory, run the following commands.
 
-Run the following commands, replacing `mydotfiles` by the name of your liking.
+First make sure you're in your home directory.
+```bash
+cd ~
+```
+Note: feel free to use any directory other than `~` if you just want to "download" the config files without it affecting your home directory.
+
+Then, clone the repository into a directory of your choice.
+I am using `dotfiles` but you can use any name you prefer.
 
 ```bash
-cd
-mkdir mydotfiles
-git --work-tree=$HOME --git-dir=$HOME/mydotfiles clone --bare --recurse-submodules https://github.com/knightattheopera/dotfiles.git mydotfiles
+git clone --bare https://github.com/knightattheopera/dotfiles.git dotfiles
 ```
 
-Things I'm sure about:
-- The `--recurse-submodules` function is necessary to download the vim plugins that exist as submodules in this repository.
-- The `--bare` option indicates that the directory `dotfiles` will be used as the git directory, and not as the work tree.
-- The `--work-tree` option indicates that the working tree is the home directory.
+This will create a *bare git repository*, that is, the files that are in `dotfiles` are the files you usually find in the `.git`
+directory on most repositories.
 
-Things I'm not sure about:
-- Given that the `--bare` option is provided, is it necessary to give the `--git-dir` option as well?
-- What happens to conflicts with existing files? Is it easier to handle them using ssh or https?
+In other words, the working tree (the set of files and folders you can edit or add to the repository or delete from the repository) is not
+in `dotfiles`.
+In fact, this cloned `git` repository doesn't have any working tree yet.
+
+Indeed, notice that if you run `cd dotfiles` followed by `git status`, you will fail with the following error:
+`fatal: this operation must be run in a work tree`.
+
+So, up until now, `git` hasn't modified any files outside the `dotfiles` directory.
+
+Before modifying anything, let's check the status of our working tree, which in this case is our home directory.
+
+```bash
+cd ~
+# Don't show untracked files, otherwise git status will print every file the home directory file tree.
+git --git-dir=dotfiles config --local showUntrackedFiles no
+git --git-dir=dotfiles --work-tree=. status
+```
+
+You will now see the entire list of files in the remote repository marked as 'deleted'.
+
+**WARNING**: Read the list carefully, because any file in that list that already exists in your computer will be overwritten by the next command.
+
+In order to restore the deleted files, we simply ask `git` to revert any local changes to the repository.
+
+```bash
+git --git-dir=dotfiles --work-tree=. reset --hard
+```
+
+All that's left to do is download the `vim` plugins, which exist in this repository as submodules.
+But, before doing so, we will simplify our life.
+
+Indeed, at this, point all our config files should be in their correct places, so let us bring our `bash` configuration live.
+
+```bash
+exec bash
+```
+
+This should allow us to use the convenient `dotfiles` command, which is defined as an alias in `~/.config/bash/aliases-scripts.sh`,
+and calls `git` with the appropriate `--git-dir` and `--work-tree` arguments.
+
+**Note**: in case you did not use the name `dotfiles` for the directory where the repository lives, you will have to modifty the `--git-dir`
+option in `~/.config/bash/aliases-scripts.sh` and then run `exec bash`.
+
+Finally, we can initialize and update our submodules.
+
+```bash
+dotfiles submodule update --init --recursive
+```
+
+The `--recursive` flag ensures that any nested submodules are also cloned.
+
+### Updating vim plugins
+
+To update all vim plugins, use the following command:
+
+```bash
+dotfiles submodule update --remote
+```
 
 ## Untracked files
 

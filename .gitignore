@@ -1,0 +1,5 @@
+/.config/bash/api-keys.sh
+/.config/rclone/rclone.conf
+/.ssh/**.pem
+/.ssh/config
+

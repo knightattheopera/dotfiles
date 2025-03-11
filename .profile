@@ -30,17 +30,17 @@ fi
 echo "Reading .profile"
 
 # >>> JVM installed by coursier >>>
-export JAVA_HOME="/home/knightattheopera/.cache/coursier/arc/https/github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.10%252B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.10_7.tar.gz/jdk-17.0.10+7"
-export PATH="$PATH:/home/knightattheopera/.cache/coursier/arc/https/github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.10%252B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.10_7.tar.gz/jdk-17.0.10+7/bin"
+export JAVA_HOME="$HOME/.cache/coursier/arc/https/github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.10%252B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.10_7.tar.gz/jdk-17.0.10+7"
+export PATH="$PATH:$HOME/.cache/coursier/arc/https/github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.10%252B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.10_7.tar.gz/jdk-17.0.10+7/bin"
 # <<< JVM installed by coursier <<<
 
 # >>> coursier install directory >>>
-export PATH="$PATH:/home/knightattheopera/.local/share/coursier/bin"
+export PATH="$PATH:$HOME/.local/share/coursier/bin"
 # <<< coursier install directory <<<
 
 # flutter install directory
 export PATH="$HOME/development/flutter/bin:$PATH"
 
 # opam configuration
-test -r /home/knightattheopera/.opam/opam-init/init.sh && . /home/knightattheopera/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 

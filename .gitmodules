@@ -7,3 +7,6 @@
 [submodule ".vim/pack/vendor/start/vim-airline"]
 	path = .vim/pack/vendor/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+[submodule ".vim/pack/vendor/start/vim-easycomplete"]
+	path = .vim/pack/vendor/start/vim-easycomplete
+	url = https://github.com/jayli/vim-easycomplete

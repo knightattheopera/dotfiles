@@ -8,10 +8,6 @@ Disclaimer: this repository is for personal use.
 The configuration files are most likely appropriate for any Debian-based Linux distribution,
 but I have only tested them on my personal computer, so there are no guarantees.
 
-## Managing `vim` plugins via git submodules
-
-This repository uses submodules to manage `vim` plugins.
-See this [guide on submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) if you want to get a better understanding of the subject.
 
 ## Cloning this repository
 
@@ -84,19 +80,13 @@ dotfiles submodule update --init --recursive
 
 The `--recursive` flag ensures that any nested submodules are also cloned.
 
-### Updating vim plugins
+## Managing `vim` plugins via git submodules
+
+This repository uses submodules to manage `vim` plugins.
+See this [guide on submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) if you want to get a better understanding of the subject.
 
 To update all vim plugins, use the following command:
 
 ```bash
 dotfiles submodule update --remote
 ```
-
-## Untracked files
-
-This is a list of important configuration files that cannot be in this repository for security or privacy reasons.
-
-- `~/.config/rclone/rclone.conf`
-- `~/.config/bash/api-keys.sh`
-- `~/.ssh/*/*.pem`
-- `~/.ssh/config`

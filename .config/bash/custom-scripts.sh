@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+# aliases that depend on relatively complex scripts
+# the convention here is that all functions declared here occupy the __custom_script namespace.
+
 # rclone syncs
-function __custom_alias_sync_home_directory_with_drive_using_rclone {
+function __custom_script_sync_home_directory_with_drive_using_rclone {
 	local FILTER_FILES_DIR="$HOME/.config/rclone/filters/"
 	cd ~
 
@@ -54,23 +57,35 @@ function __custom_alias_sync_home_directory_with_drive_using_rclone {
 
 	echo "Done."
 }
+alias sync-home=__custom_script_sync_home_directory_with_drive_using_rclone
 
-alias sync-home=__custom_alias_sync_home_directory_with_drive_using_rclone
+# basic script to download music
+# assumes you are logged in to youtube on firefox 
+function __custom_script_download_music_playlist_as_mp3 {
+	if [[ "$#" -eq 2 ]]
+	then
+		mkdir -p $2
+		cd $2
 
-# dotfiles management
-# see https://mitxela.com/projects/dotfiles_management
+		local cookies_options=--cookies-from-browser\ firefox
+		
+		# attempt to find the cookies file explicitly
+		local cookies_dir=$HOME/.var/app/org.mozilla.firefox/
+		if [ -d $cookies_dir ]
+		then
+			local cookies_file_path=$(find $cookies_dir -name cookies.sqlite)
+			if [ "$?" -eq 0 ]
+			then
+				# use parameter expansion to get only the path of the directory and not of the file itself
+				cookies_file_path=${cookies_file_path%/*.*}
+				cookies_options=$cookies_options:$cookies_file_path
+			fi
+		fi
 
-alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-function __dotfiles_display {
-  if [[ "$#" -eq 0 ]]; then
-    (cd /
-    for i in $(dotfiles ls-files); do
-      echo -n "$(dotfiles -c color.status=always status $i -s | sed "s#$i##")"
-      echo -e "¬/$i¬\e[0;33m$(dotfiles -c color.ui=always log -1 --format="%s" -- $i)\e[0m"
-    done
-    ) | column -t --separator=¬ -T2
-  else
-    dotfiles $*
-  fi
+		yt-dlp $cookies_options --format ba --extract-audio --audio-format mp3 --audio-quality 0 --output "%(playlist_index)s-%(title)s.%(ext)s" $1
+	else
+		echo "Usage: yt-mp3 <playlist-url> <output-directory>"
+	fi
 }
-alias dot=__dotfiles_display
+alias yt-mp3=__custom_script_download_music_playlist_as_mp3
+

@@ -72,6 +72,7 @@ set nowrap
 " Configuration for vim-easycomplete
 let g:easycomplete_tab_trigger="<c-k>"
 let g:easycomplete_shift_tab_trigger="<c-s-k>"
+let g:easycomplete_nerd_font=1
 
 " Set absolute path for ultisnips snippets. This should be faster than the
 " default option.

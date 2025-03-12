@@ -75,8 +75,8 @@ alias l='ls -CF'
 # Alias definitions.
 function __conditional_source { if [ -f $1 ]; then source $1; fi; }
 
-__conditional_source ~/.config/bash/aliases-simple.sh
-__conditional_source ~/.config/bash/aliases-scripts.sh
+__conditional_source ~/.config/bash/aliases.sh
+__conditional_source ~/.config/bash/custom-scripts.sh
 __conditional_source ~/.config/bash/api-keys.sh
 __conditional_source ~/.config/bash/prompt-powerline.sh
 

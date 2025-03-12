@@ -77,11 +77,11 @@ Indeed, at this, point all our config files should be in their correct places, s
 exec bash
 ```
 
-This should allow us to use the convenient `dotfiles` command, which is defined as an alias in `~/.config/bash/aliases-scripts.sh`,
+This should allow us to use the convenient `dotfiles` command, which is defined as an alias in `~/.config/bash/aliases.sh`,
 and calls `git` with the appropriate `--git-dir` and `--work-tree` arguments.
 
 **Note**: in case you did not use the name `dotfiles` for the directory where the repository lives, you will have to modifty the `--git-dir`
-option in `~/.config/bash/aliases-scripts.sh` and then run `exec bash`.
+option in `~/.config/bash/aliases.sh` and then run `exec bash`.
 
 Finally, we can initialize and update our submodules.
 

@@ -11,6 +11,17 @@ but I have only tested them on my personal computer, so there are no guarantees.
 
 ## Cloning this repository
 
+#### Command summary
+
+```bash
+cd ~
+git clone --bare https://github.com/knightattheopera/dotfiles.git dotfiles
+git --git-dir=dotfiles config --local showUntrackedFiles no
+git --git-dir=dotfiles --work-tree=. reset --hard
+git --git-dir=dotfiles --work-tree=. submodule update --init --recursive
+```
+
+#### Detailed version
 To clone this directory, run the following commands.
 
 First make sure you're in your home directory.
@@ -79,6 +90,11 @@ dotfiles submodule update --init --recursive
 ```
 
 The `--recursive` flag ensures that any nested submodules are also cloned.
+
+#### Note to self (or potential contributors)
+
+After cloning the repository,
+do not forget to edit `~/.dotfiles/config` and change the url of the remote to its ssh version.
 
 ## Managing `vim` plugins via git submodules
 

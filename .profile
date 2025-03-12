@@ -26,7 +26,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-
 echo "Reading .profile"
 
 # >>> JVM installed by coursier >>>

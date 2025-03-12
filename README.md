@@ -106,3 +106,12 @@ To update all vim plugins, use the following command:
 ```bash
 dotfiles submodule update --remote
 ```
+
+To add a new vim plugin, use the following commands:
+
+```bash
+cd ~/.vim/pack/vendor/start/
+dotfiles submodule add <some-plugin-url>
+dotfiles commit -m "Add \`some-plugin\` as a submodule"
+dotfiles push
+```

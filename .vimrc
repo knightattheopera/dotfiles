@@ -73,11 +73,16 @@ set nowrap
 let g:easycomplete_tab_trigger="<c-k>"
 let g:easycomplete_shift_tab_trigger="<c-s-k>"
 let g:easycomplete_nerd_font=1
+" Leaving this global variable unset means it will be set
+" by easycomplete, which will overwrite the
+" g:UltiSnipsSnippetDirectories and g:UltiSnipsEnableSnipMate
+" global variables
+let g:easycomplete_snips_enable=0
 
 " Set absolute path for ultisnips snippets. This should be faster than the
 " default option.
-let g:UltiSnipsSnippetDirectories=["~/.vim/ultisnips-snippets"]
-
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips-snippets']
+let g:UltiSnipsEnableSnipMate=0
 " Configuration for UltiSnips 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"

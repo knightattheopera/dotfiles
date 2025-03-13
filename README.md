@@ -115,3 +115,16 @@ dotfiles submodule add <some-plugin-url>
 dotfiles commit -m "Add \`some-plugin\` as a submodule"
 dotfiles push
 ```
+
+---
+
+# Additional Notes
+
+## Zoom
+
+To edit zoom configuration, you have to edit the `~/.config/zoomus.conf` file.
+If zoom is installed through flatpak,
+the file is located at `~/.var/app/us.zoom.Zoom/config/zoomus.conf`.
+
+To disable the Mini Window in Zoom, you must edit this file and set the
+`enableMiniWindow` option to `true`. Restart Zoom to apply the changes.

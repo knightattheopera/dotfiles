@@ -23,7 +23,6 @@ set history=1000
 " To make vim use the indent of the previous line for a newly created line.
 set autoindent
 
-
 " Tabstop settings
 set tabstop=8
 set noexpandtab
@@ -48,31 +47,29 @@ set scrolloff=10
 " indent files
 filetype plugin indent on
 
+" To show tabs and trailing spaces in grey
+set list
+set listchars=tab:▸·,trail:·
+highlight SpecialKey ctermfg=DarkGrey
+
 " To show the current line number and line numbers relatives to the current
 " one at the left of the screen
 set number
 set relativenumber
 
+" Use set wrap to make the lines wrap when they go beyond the right edge of
+" the screen.
 set nowrap
 
 " ========================
 " ===  PLUGIN SETTINGS ===
 " ========================
 
-" This enables vim-plug plugin manager
-" Source: https://github.com/junegunn/vim-plug
-
-" call plug#begin()
-" Plug 'jayli/vim-easycomplete'
-" Plug 'SirVer/ultisnips'
-" Plug 'lervag/vimtex'
-" Plug 'simeji/winresizer'
-" call plug#end()
-
 " Configuration for vim-easycomplete
 let g:easycomplete_tab_trigger="<c-k>"
-let g:easycomplete_shift_tab_trigger="<c-s-k>"
+let g:easycomplete_shift_tab_trigger="<c-j>"
 let g:easycomplete_nerd_font=1
+let g:easycomplete_tabnine_enable = 0
 " Leaving this global variable unset means it will be set
 " by easycomplete, which will overwrite the
 " g:UltiSnipsSnippetDirectories and g:UltiSnipsEnableSnipMate
@@ -97,10 +94,4 @@ let g:tex_flavor='luatex'
 let g:vimtex_view_method = 'zathura'
 set conceallevel=1
 let g:tex_conceal='abdmgs'
-" To clear the highlight from characters concealed by g:tex_conceal. See also
-" https://github.com/KeitaNakamura/tex-conceal.vim/issues/4 altough this seems
-" to be troubleshooting for some plugin.
-" Also see :help Conceal
-hi clear Conceal
-
 

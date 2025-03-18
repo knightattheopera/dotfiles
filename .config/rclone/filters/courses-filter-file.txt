@@ -6,6 +6,7 @@
 + /archive/cs300/**
 
 # 📽 CS-302: Parallelism and Concurrency in Software
+- /cs320/assignments/**
 + /cs320/**
 
 # 🗄 CS-311: The Software Enterprise: from ideas to products
@@ -47,10 +48,13 @@
 + /archive/cs450/**
 
 # 📽 CS-460: Systems for data management and data science
+- /cs460/project-**
 + /cs460/**
 
 # 📽 CS-552: Modern Natural Language Processing
 - /cs552/mock-project/**
+- /cs552/github-repo/**
+- /cs552/exercises/**
 + /cs552/**
 
 # 🗄 HUM-337

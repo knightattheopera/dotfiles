@@ -1,5 +1,8 @@
 /.config/bash/api-keys.sh
+/.config/bash/private-aliases.sh
 /.config/rclone/rclone.conf
 /.ssh/**.pem
 /.ssh/config
+/rec/**
+
 

@@ -28,5 +28,12 @@
     },
     "telemetry.telemetryLevel": "crash",
     "editor.fontFamily": "'Cascadia Code','Droid Sans Mono', 'monospace', monospace",
-    "editor.fontLigatures": false
+    "editor.fontLigatures": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "[python]" : {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    }
 }

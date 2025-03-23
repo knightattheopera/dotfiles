@@ -79,6 +79,7 @@ __conditional_source ~/.config/bash/aliases.sh
 __conditional_source ~/.config/bash/custom-scripts.sh
 __conditional_source ~/.config/bash/api-keys.sh
 __conditional_source ~/.config/bash/prompt-powerline.sh
+__conditional_source ~/.config/bash/private-aliases.sh
 
 unset __conditional_source
 
@@ -105,4 +106,7 @@ export PATH="$HOME/development/gems/bin:$PATH"
 # Activate miniconda
 export PATH="$HOME/development/miniconda3/bin:$PATH"
 eval "$('conda' 'shell.bash' 'hook')"
+
+# Setup direnv
+eval "$('direnv' 'hook' 'bash')"
 

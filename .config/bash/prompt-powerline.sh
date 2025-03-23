@@ -147,7 +147,7 @@ function __powerline {
         PS1+="${SYMBOL_PART_NEXT}${COLOR_RESET}"
     }
 
-    PROMPT_COMMAND=__create_prompt
+    PROMPT_COMMAND="__create_prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 }
 
 __powerline

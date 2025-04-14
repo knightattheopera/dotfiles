@@ -42,6 +42,7 @@
 + /archive/cs433/**
 
 # 📽 CS-448: Sublinear Algorithms for Big Data Analysis
+- /cs448/homeworks/
 + /cs448/**
 
 # 🗄 CS-450: Algorithms II
@@ -54,7 +55,8 @@
 # 📽 CS-552: Modern Natural Language Processing
 - /cs552/mock-project/**
 - /cs552/github-repo/**
-- /cs552/exercises/**
+- /cs552/exercises/.gitignore
++ /cs552/exercises/**
 + /cs552/**
 
 # 🗄 HUM-337

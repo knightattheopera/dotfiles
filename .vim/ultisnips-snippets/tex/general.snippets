@@ -118,12 +118,19 @@ snippet mk "Inline Math" wA
 \$${1:${VISUAL}}\$$0
 endsnippet
 
-snippet align "Aligned" b
+snippet aligned "Aligned" b
 \\[
 \\begin\{aligned\}
 	${1:${VISUAL}}
 \\end\{aligned\}
 .\\]$0
+endsnippet
+
+snippet align* "Aligned" b
+\\begin\{align*\}
+	${1:${VISUAL}}
+\\end\{align*\}
+$0
 endsnippet
 
 context "math()"
@@ -226,6 +233,8 @@ snippet sqrto "... Root" w
 \\sqrt[$1]\{${2:${VISUAL}}\}$0
 endsnippet
 
+# Style
+
 snippet bf "Bold" w
 \\`!p
 if math():
@@ -255,6 +264,21 @@ snippet tx "Text" w
 \\text\{${1:${VISUAL}}\}$0
 endsnippet
 
+context "math()"
+snippet cal "Caligraphic Font" w
+\\mathcal\{${1:${VISUAL}}\}$0
+endsnippet
+
+context "math()"
+snippet rm "Right Mode Font" w
+\\mathrm\{${1:${VISUAL}}\}$0
+endsnippet
+
+context "math()"
+snippet bb "Blackboard Bold Font" w
+\\mathbb\{${1:${VISUAL}}\}$0
+endsnippet
+
 context "env('itemize') or env('enumerate')"
 snippet itm "Item" bA
 \\item ${0:${VISUAL}}
@@ -264,67 +288,72 @@ endsnippet
 
 context "math()"
 snippet ceil "Ceil" w
-\\left\\lceil $1 \\right\\rceil $0
+\\left\\lceil${1:${VISUAL}}\\right\\rceil$0
 endsnippet
 
 context "math()"
 snippet floor "Floor" w
-\\left\\lfloor $1 \\right\\rfloor$0
+\\left\\lfloor${1:${VISUAL}}\\right\\rfloor$0
 endsnippet
 
 context "math()"
 snippet pmat "Pmat" w
-\\begin\{pmatrix\} $1 \\end\{pmatrix\} $0
+\\begin\{pmatrix\} $1 \\end\{pmatrix\}$0
 endsnippet
 
 context "math()"
 snippet bmat "Bmat" w
-\\begin\{bmatrix\} $1 \\end\{bmatrix\} $0
+\\begin\{bmatrix\} $1 \\end\{bmatrix\}$0
 endsnippet
 
 context "math()"
 snippet () "left( right)" w
-\\left( ${1:${VISUAL}} \\right) $0
+\\left(${1:${VISUAL}}\\right)$0
 endsnippet
 
 context "math()"
 snippet lr "left( right)" w
-\\left( ${1:${VISUAL}} \\right) $0
+\\left(${1:${VISUAL}}\\right)$0
 endsnippet
 
 context "math()"
 snippet lr( "left( right)" w
-\\left( ${1:${VISUAL}} \\right) $0
+\\left(${1:${VISUAL}}\\right)$0
 endsnippet
 
 context "math()"
 snippet lr| "left| right|" w
-\\left| ${1:${VISUAL}} \\right| $0
+\\left|${1:${VISUAL}}\\right|$0
 endsnippet
 
 context "math()"
 snippet abs "absolute value" w
-\\left| ${1:${VISUAL}} \\right| $0
+\\left|${1:${VISUAL}}\\right|$0
+endsnippet
+
+context "math()"
+snippet norm "Norm" w
+\\left\\lVert ${1:${VISUAL}} \\right\\rVert$0
 endsnippet
 
 context "math()"
 snippet lr{ "left\{ right\}" w
-\\left\\\{ ${1:${VISUAL}} \\right\\\} $0
+\\left\\\{${1:${VISUAL}}\\right\\\}$0
 endsnippet
 
 context "math()"
 snippet lrb "left\{ right\}" w
-\\left\\\{ ${1:${VISUAL}} \\right\\\} $0
+\\left\\\{${1:${VISUAL}}\\right\\\}$0
 endsnippet
 
 context "math()"
 snippet lr[ "left[ right]" w
-\\left[ ${1:${VISUAL}} \\right] $0
+\\left[${1:${VISUAL}}\\right]$0
 endsnippet
 
 context "math()"
 snippet lra "leftangle rightangle" w
-\\left<${1:${VISUAL}} \\right>$0
+\\left<${1:${VISUAL}}\\right>$0
 endsnippet
 
 context "math()"

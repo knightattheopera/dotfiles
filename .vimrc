@@ -31,7 +31,8 @@ set shiftwidth=8
 " useful. Check their :help entries for more information.
 " set softtabstop=8
 " set smarttab
-autocmd FileType cpp,c,h,vhdl,html,sh setlocal tabstop=4 shiftwidth=4
+autocmd FileType cpp,c,h,vhdl,sh setlocal tabstop=4 shiftwidth=4
+autocmd FileType py,html,scss,css setlocal tabstop=2 shiftwidth=2 expandtab
 
 " To highlight syntax
 syntax on

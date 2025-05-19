@@ -1,2 +1,5 @@
 ######### IGNORE THE FLUTTER TEST DIRECTORY
 - drafts/flutter-test/**
+
+# git repos
+- portfolio/**

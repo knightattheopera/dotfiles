@@ -56,6 +56,7 @@
 - /cs552/mock-project/**
 - /cs552/github-repo/**
 - /cs552/exercises/.gitignore
+- /cs552/project/**
 + /cs552/exercises/**
 + /cs552/**
 

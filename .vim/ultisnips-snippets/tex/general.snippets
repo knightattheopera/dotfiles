@@ -233,6 +233,21 @@ snippet sqrto "... Root" w
 \\sqrt[$1]\{${2:${VISUAL}}\}$0
 endsnippet
 
+context "math()"
+snippet conj "conjugate" w
+\\overline\{$1\}$0
+endsnippet
+
+context "math()"
+snippet cconj "conjugate" w
+^\{*\}
+endsnippet
+
+context "math()"
+snippet hat "hat" w
+\\hat\{${1:${VISUAL}}\}$0
+endsnippet
+
 # Style
 
 snippet bf "Bold" w
@@ -357,16 +372,6 @@ snippet lra "leftangle rightangle" w
 endsnippet
 
 context "math()"
-snippet conj "conjugate" w
-\\overline\{$1\}$0
-endsnippet
-
-context "math()"
-snippet cconj "conjugate" w
-^\{*\}
-endsnippet
-
-context "math()"
 snippet |> "right Dirac's notation" w
 \\vert $1 \\rangle $0
 endsnippet
@@ -380,6 +385,8 @@ context "math()"
 snippet <|> "Dirac's dot product" w
 \\langle $1 \\mid $2 \\rangle $0
 endsnippet
+
+# Calculus
 
 context "math()"
 snippet sum "sum" w
@@ -500,6 +507,11 @@ endsnippet
 context "math()"
 snippet pi "pi" w
 \\pi
+endsnippet
+
+context "math()"
+snippet sigma "sigma" w
+\\sigma
 endsnippet
 
 # ###########

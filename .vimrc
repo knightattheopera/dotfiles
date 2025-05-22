@@ -93,8 +93,6 @@ let g:tex_flavor='luatex'
 
 " Options for vim-tex
 let g:vimtex_view_method = 'zathura'
-set conceallevel=1
-let g:tex_conceal='abdmgs'
 " See :h vimtex_version_check
 let g:vimtex_version_check=0
 

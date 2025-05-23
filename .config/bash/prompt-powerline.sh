@@ -7,9 +7,10 @@ __ps1_max_length=5
 
 function __powerline {
 
-    function __create_prompt {
+	function __create_prompt {
 
 		# Colors
+		local FG_VOID="\[\e[38;5;232m\]"
 		local FG_BLACK="\[\e[38;5;0m\]"
 		local FG_GREEN="\[\e[38;5;40m\]"
 		local FG_DARKGREEN="\[\e[38;5;28m\]"
@@ -37,6 +38,32 @@ function __powerline {
 
 		local COLOR_RESET="\[\e[m\]"
 
+		# These are the colors of the terminal theme
+		local FG_PALETTE_00="\[\e[30m\]"
+		local FG_PALETTE_01="\[\e[31m\]"
+		local FG_PALETTE_02="\[\e[32m\]"
+		local FG_PALETTE_03="\[\e[33m\]"
+		local FG_PALETTE_04="\[\e[34m\]"
+		local FG_PALETTE_05="\[\e[35m\]"
+		local FG_PALETTE_06="\[\e[36m\]"
+		local FG_PALETTE_07="\[\e[37m\]"
+		local FG_PALETTE_08="\[\e[01;30m\]"
+		local FG_PALETTE_09="\[\e[01;31m\]"
+		local FG_PALETTE_10="\[\e[01;32m\]"
+		local FG_PALETTE_11="\[\e[01;33m\]"
+		local FG_PALETTE_12="\[\e[01;34m\]"
+		local FG_PALETTE_13="\[\e[01;35m\]"
+		local FG_PALETTE_14="\[\e[01;36m\]"
+		local FG_PALETTE_15="\[\e[01;37m\]"
+
+		local BG_PALETTE_00="\[\e[40m\]"
+		local BG_PALETTE_01="\[\e[41m\]"
+		local BG_PALETTE_02="\[\e[42m\]"
+		local BG_PALETTE_03="\[\e[43m\]"
+		local BG_PALETTE_04="\[\e[44m\]"
+		local BG_PALETTE_05="\[\e[45m\]"
+		local BG_PALETTE_06="\[\e[46m\]"
+		local BG_PALETTE_07="\[\e[47m\]"
 
 		# The escaped brackets '\[' and '\]' make it so that
 		# everything in between is ignored when computing
@@ -64,36 +91,38 @@ function __powerline {
 		local SYMBOL_FOLDER='\['"`tput sc`"'\] \['"`tput rc`"'📂\]'
 
 		# The output of the previous command
-        local RESULT=${?##0}
+		local RESULT=${?##0}
 
-        local PATH_FG=${FG_BLUE}
-        local PATH_BG=${BG_LIGHTBLUE}
-        local USER_FG=${FG_BLUE}
-        local PART_FG=${FG_LIGHTBLUE}
-		local INFO_FG=${FG_BLUE}
-		local INFO_BG=${BG_GREEN}
-	
+		# Base color scheme
+		local INFO_BG=${BG_PALETTE_00}
+		local INFO_FG=${FG_PALETTE_12}
 
-        # Check if PWD is writable and set color accordingly
-        if [ ! -w "${PWD}" ]; then
-            PATH_FG=${FG_PURPLE}
-            USER_FG=${FG_PURPLE}
-        fi
+		local INFO_END_FG=${FG_PALETTE_08}
 
-        # Check for root
-        if [[ $EUID -eq 0 ]]; then
-            USER_FG=${FG_LIGHTWITE}
-            PATH_BG=${BG_RED}
-            PART_FG=${FG_RED}
-        fi
+		local PATH_BG=${BG_PALETTE_04}
+		local PATH_FG=${FG_PALETTE_08}
 
-        # Parse path
-        local WD
-        if [[ "${PWD}" == ${HOME}* ]]
+		local PATH_END_FG=${FG_PALETTE_12}
+
+		# Check if PWD is writable and set color accordingly
+		if [ ! -w "${PWD}" ]; then
+			PATH_FG=${FG_PALETTE_09}
+		fi
+
+		# Check for root
+		if [[ $EUID -eq 0 ]]; then
+			PATH_BG=${BG_PALETTE_01}
+			PATH_FG=${FG_PALETTE_07}
+			PATH_END_FG=${FG_PALETTE_09}
+		fi
+
+		# Parse path
+		local WD
+		if [[ "${PWD}" == ${HOME}* ]]
 		then
 			# Save the head of the working directory and remove it from the variable
-			local WD_HEAD="${USER_FG}${SYMBOL_HOME_PATH}"	
-            WD=${PWD/$HOME/}
+			local WD_HEAD="${PATH_FG}${SYMBOL_HOME_PATH}"
+			WD=${PWD/$HOME/}
 			# Remove the first slash if present
 			WD=${WD/\//}
 
@@ -113,14 +142,14 @@ function __powerline {
 				local WD_TAIL
 				for d in "${DIRS[@]}"
 				do
-					WD_TAIL="${WD_TAIL} ${FG_DARKBLUE}${SYMBOL_PATH_NEXT}${PATH_FG} ${d}"
+					WD_TAIL="${WD_TAIL} ${PATH_FG}${SYMBOL_PATH_NEXT}${PATH_FG} ${d}"
 				done
 			done <<< "$WD"
 			WD="${WD_HEAD}${WD_TAIL}"
-        else
-            [[ "$PWD" != "/" ]] && WD=${PWD//\// ${FG_DARKBLUE}${SYMBOL_PATH_NEXT}${PATH_FG} }
-            WD=${USER_FG}${SYMBOL_ROOT_PATH}${WD}
-        fi
+		else
+			[[ "$PWD" != "/" ]] && WD=${PWD//\// ${PATH_FG}${SYMBOL_PATH_NEXT}${PATH_FG} }
+			WD=${PATH_FG}${SYMBOL_ROOT_PATH}${WD}
+		fi
 
 		# FIXME beware of code injection. The PS1 variable is automatically expanded, so if a directory name contains
 		# shell code, it will be executed when the prompt is drawn. This is mainly an issue with prompts that display
@@ -132,22 +161,22 @@ function __powerline {
 		# instead, it could be better to set some other global variables that are then used by the PS1 variable
 
 		# Add time and host name
-		PS1="${BOLD}${INFO_FG}${INFO_BG} \A ${FG_DARKGREEN}${SYMBOL_PATH_NEXT}${INFO_FG} ${SYMBOL_COMPUTER}  \h "
+		PS1="${INFO_BG}${INFO_FG} \A ${INFO_FG}${SYMBOL_PATH_NEXT}${INFO_FG} \h "
 
 		# Close time and host name
-		PS1+="${FG_GREEN}${PATH_BG}${SYMBOL_PART_NEXT}"
+		PS1+="${PATH_BG}${INFO_END_FG}${SYMBOL_PART_NEXT}"
 
-        # Add working directory
-        PS1+="${PATH_FG}${PATH_BG}${SYMBOL_FOLDER} ${WD} ${COLOR_RESET}${PART_FG}"
+		# Add working directory
+		PS1+="${PATH_FG}${PATH_BG} ${WD} ${COLOR_RESET}${PATH_END_FG}"
 
-        # Expand exit code of the previous command
-        PS1+="${RESULT:+${BG_DARKRED}${SYMBOL_PART_NEXT}${FG_LIGHTWHITE}${RESULT} ${COLOR_RESET}${FG_DARKRED}}"
+		# Expand exit code of the previous command
+		PS1+="${RESULT:+${BG_DARKRED}${SYMBOL_PART_NEXT}${FG_LIGHTWHITE}${RESULT} ${COLOR_RESET}${FG_DARKRED}}"
 
-        # Finalize PS1
-        PS1+="${SYMBOL_PART_NEXT}${COLOR_RESET}"
-    }
+		# Finalize PS1
+		PS1+="${SYMBOL_PART_NEXT}${COLOR_RESET}"
+	}
 
-    PROMPT_COMMAND="__create_prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+	PROMPT_COMMAND="__create_prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 }
 
 __powerline

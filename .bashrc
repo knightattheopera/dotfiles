@@ -76,12 +76,20 @@ alias l='ls -CF'
 function __conditional_source { if [ -f $1 ]; then source $1; fi; }
 
 __conditional_source ~/.config/bash/aliases.sh
-__conditional_source ~/.config/bash/custom-scripts.sh
 __conditional_source ~/.config/bash/api-keys.sh
 __conditional_source ~/.config/bash/prompt-powerline.sh
 __conditional_source ~/.config/bash/private-aliases.sh
 
 unset __conditional_source
+
+if [ -d ~/.config/bash/scripts ]
+then
+	for script in ~/.config/bash/scripts/*.sh
+	do
+		source $script
+	done
+fi
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

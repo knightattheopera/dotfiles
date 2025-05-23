@@ -11,6 +11,7 @@
 
 # 🗄 CS-311: The Software Enterprise: from ideas to products
 - /archive/cs311/echo/**
+- /archive/cs311/prd/**
 + /archive/cs311/**
 
 # 🗄 CS-320: Computer Language Processing
@@ -26,6 +27,8 @@
 + /archive/cs330/**
 
 # 🗄 CS-341: Introduction to Computer Graphics
+- /archive/cs341/project/**
+- /archive/cs341/labs/**
 + /archive/cs341/**
 
 # 🗄 CS-401: Applied Data Analysis

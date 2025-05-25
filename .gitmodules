@@ -4,9 +4,12 @@
 [submodule ".vim/pack/vendor/start/ultisnips"]
 	path = .vim/pack/vendor/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule ".vim/pack/vendor/start/vim-airline"]
-	path = .vim/pack/vendor/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-[submodule ".vim/pack/vendor/start/vim-easycomplete"]
-	path = .vim/pack/vendor/start/vim-easycomplete
-	url = https://github.com/jayli/vim-easycomplete
+[submodule ".vim/pack/vendor/start/lightline"]
+	path = .vim/pack/vendor/start/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule ".vim/pack/vendor/start/rosepine"]
+	path = .vim/pack/vendor/start/rosepine
+	url = https://github.com/rose-pine/vim.git
+[submodule ".vim/pack/YouCompleteMe/opt/YouCompleteMe"]
+	path = .vim/pack/YouCompleteMe/opt/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git

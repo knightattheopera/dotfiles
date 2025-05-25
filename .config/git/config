@@ -1,4 +1,4 @@
 [core]
-	editor = vim
+	editor = ~/.local/bin/vim
 [init]
 	defaultBranch = main

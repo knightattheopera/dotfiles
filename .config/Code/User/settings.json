@@ -34,7 +34,13 @@
     "editor.detectIndentation": false,
     "[python]" : {
         "editor.insertSpaces": true,
-        "editor.tabSize": 4
+        "editor.tabSize": 2
 	},
-	"workbench.colorTheme": "Rosé Pine Moon"
+    "[ocaml]" : {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+	},
+	"workbench.colorTheme": "Rosé Pine Moon",
+	"markdown-preview-enhanced.previewTheme": "monokai.css",
+	"python.analysis.typeCheckingMode": "basic"
 }

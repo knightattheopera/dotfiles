@@ -31,7 +31,7 @@ set noexpandtab
 " useful. Check their :help entries for more information.
 " set softtabstop=8
 " set smarttab
-autocmd FileType vim,py,html,scss,css setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType vim,py,html,scss,css,ocaml setlocal tabstop=2 shiftwidth=2 expandtab
 
 " To highlight syntax
 syntax on

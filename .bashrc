@@ -82,15 +82,6 @@ __conditional_source ~/.config/bash/private-aliases.sh
 
 unset __conditional_source
 
-if [ -d ~/.config/bash/scripts ]
-then
-	for script in ~/.config/bash/scripts/*.sh
-	do
-		source $script
-	done
-fi
-
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

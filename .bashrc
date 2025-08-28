@@ -93,19 +93,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Install Ruby Gems to ~/development/gems
-export GEM_HOME="$HOME/development/gems"
-export PATH="$HOME/development/gems/bin:$PATH"
-
-# Activate miniconda
-export PATH="$HOME/development/miniconda3/bin:$PATH"
-eval "$('conda' 'shell.bash' 'hook')"
-
 # Setup direnv
 eval "$('direnv' 'hook' 'bash')"
 

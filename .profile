@@ -12,7 +12,7 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
@@ -28,17 +28,52 @@ fi
 
 echo "Reading .profile"
 
-# >>> JVM installed by coursier >>>
-export JAVA_HOME="$HOME/.cache/coursier/arc/https/github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.10%252B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.10_7.tar.gz/jdk-17.0.10+7"
-export PATH="$PATH:$HOME/.cache/coursier/arc/https/github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.10%252B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.10_7.tar.gz/jdk-17.0.10+7/bin"
-# <<< JVM installed by coursier <<<
+# Activate coursier
+if [ -d "$HOME:/.local/share/coursier/bin" ] ; then
+    export PATH="$PATH:$HOME/.local/share/coursier/bin"
+    # >>> JVM installed by coursier >>>
+    export JAVA_HOME="$HOME/.cache/coursier/arc/https/github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.10%252B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.10_7.tar.gz/jdk-17.0.10+7"
+    export PATH="$PATH:$HOME/.cache/coursier/arc/https/github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.10%252B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.10_7.tar.gz/jdk-17.0.10+7/bin"
+    # <<< JVM installed by coursier <<<
+fi
 
-# >>> coursier install directory >>>
-export PATH="$PATH:$HOME/.local/share/coursier/bin"
-# <<< coursier install directory <<<
+# Activate flutter
+if [ -d "$HOME/development/flutter/bin" ] ; then
+    export PATH="$HOME/development/flutter/bin:$PATH"
+fi
 
-# flutter install directory
-export PATH="$HOME/development/flutter/bin:$PATH"
+if [ -d "$HOME/.nvm" ] ; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+# Activate ruby gems
+if [ -d "$HOME/development/gems" ] ; then
+    export GEM_HOME="$HOME/development/gems"
+    export PATH="$HOME/development/gems/bin:$PATH"
+fi
+
+# Activate miniconda
+if [ -d "$HOME/development/miniconda3/bin" ] ; then
+    export PATH="$HOME/development/miniconda3/bin:$PATH"
+    eval "$('conda' 'shell.bash' 'hook')"
+fi
+
+# Activate Cangjie
+if [ -f "$HOME/development/cangjie/1.0.0/envsetup.sh" ] ; then
+    source "$HOME/development/cangjie/1.0.0/envsetup.sh"
+fi
+
+# Activate Swift
+if [ -f "$HOME/.local/share/swiftly/env.sh" ] ; then
+    source "$HOME/.local/share/swiftly/env.sh"
+fi
+
+# Activate go
+if [ -d "$HOME/development/go/bin" ] ; then
+    export PATH="$HOME/development/go/bin:$PATH"
+fi
 
 # opam configuration
 test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true

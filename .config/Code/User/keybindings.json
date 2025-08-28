@@ -4,5 +4,13 @@
         "key": "ctrl+e ctrl+b",
         "command": "notebook.cell.executeCellAndBelow",
         "when": "notebookMissingKernelExtension && notebookCellType == 'code' || notebookCellType == 'code' && notebookKernelCount > 0 || notebookCellType == 'code' && notebookKernelSourceCount > 0"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditor"
     }
 ]

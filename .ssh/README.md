@@ -55,6 +55,32 @@ Host gitlab.somedomain.com-someusername
 	IdentityFile ~/.ssh/gitlab.somedomain.com/someusername.pem
 ```
 
+# Exporting an ssh key to a server
+
+If you want to use an ssh key to connect to a server, you will usually
+need to append the public key to the file `$HOME/.ssh/authorized_keys`
+on the server. Here, `$HOME` is the home directory of your user on
+this server. Here follow two ways to achieve this.
+
+## 1. Using `ssh-copy-id`
+
+This method assumes you have a file with the public key in your local
+machine (e.g. a `.pem.pub` file), which can be generated with the method
+presented earlier in this document.
+
+```bash
+ssh-copy-id -i path/to/file.pem.pub <username>@<server-address>
+```
+
+## 2. Copying directly to the `authorized_keys` file
+
+This method assumes that the `authorized_keys`
+file already exists on the server.
+
+```bash
+ssh-keygen -y -f path/to/file.pem | ssh <username>@<server-address> "cat >> ~/.ssh/authorized_keys"
+```
+
 # References
 
 The main reference is Mulan's [excellent answer](https://stackoverflow.com/a/43009365) to [this SO question](https://stackoverflow.com/questions/3860112/multiple-github-accounts-on-the-same-computer).

@@ -56,10 +56,6 @@ set ruler
 " Display unicode characters
 set encoding=utf-8
 
-" To allow for <Enter> to create new lines in normal mode
-map <Enter> o<ESC>
-map <S-Enter> O<ESC>
-
 "To make vim rememeber 1000 commands
 set history=1000
 
@@ -75,7 +71,7 @@ set noexpandtab
 " useful. Check their :help entries for more information.
 " set softtabstop=8
 " set smarttab
-autocmd FileType python,sh set expandtab
+autocmd FileType python,sh,cpp,c,cuda set expandtab
 autocmd FileType vim,html,scss,css,ocaml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " To highlight syntax

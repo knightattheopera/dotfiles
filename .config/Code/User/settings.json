@@ -4,7 +4,6 @@
         "**/.metals": true,
         "**/.ammonite": true
     },
-    "metals.javaHome": "/home/knightattheopera/.cache/coursier/arc/https/github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.22%252B7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.22_7.tar.gz/jdk-11.0.22+7",
     "javascript.suggestionActions.enabled": false,
     "makefile.configureOnOpen": true,
     "cmake.pinnedCommands": [
@@ -26,7 +25,7 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": "off"
     },
-    "telemetry.telemetryLevel": "crash",
+    "telemetry.telemetryLevel": "off",
     "editor.fontFamily": "'Cascadia Code','Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": false,
     "editor.renderWhitespace": "boundary",
@@ -35,20 +34,19 @@
     "[python]" : {
         "editor.insertSpaces": true,
         "editor.tabSize": 4
-	},
+    },
     "[ocaml]" : {
         "editor.insertSpaces": true,
         "editor.tabSize": 2
-	},
-	"[Cangjie]": {
-		"editor.insertSpaces": true,
-		"editor.tabSize": 4
-	},
-	"[swift]": {
-		"editor.insertSpaces": true,
-		"editor.tabSize": 4
-	},
-	"workbench.colorTheme": "Rosé Pine Moon",
-	"markdown-preview-enhanced.previewTheme": "monokai.css",
-	"python.analysis.typeCheckingMode": "basic",
+    },
+    "[Cangjie]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "[swift]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "editor.fontSize": 18,
+    "http.systemCertificatesNode": true
 }

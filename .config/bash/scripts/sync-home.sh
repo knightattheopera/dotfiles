@@ -15,7 +15,7 @@ rclone sync --interactive "books" "gdrive-archivos:Laptop Home/books"
 
 echo
 echo "Syncing Music..."
-rclone sync --interactive --include="/README.md" --include="download-playlist.sh" --include="m4a-to-mp3.sh" "Music" "gdrive-archivos:Laptop Home/Music"
+rclone sync --interactive "Music" "gdrive-archivos:Laptop Home/Music"
 
 echo
 echo "Starting syncs with filters..."

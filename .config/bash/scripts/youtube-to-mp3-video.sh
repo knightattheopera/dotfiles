@@ -31,7 +31,7 @@ then
 
     format_options=--format\ ba\ --extract-audio\ --audio-format\ mp3\ --audio-quality\ 0
 
-    uvx --with yt-dlp-getpot-wpc yt-dlp -v $cookies_options $format_options --js-runtimes node --extractor-args "youtube:player-client=default,web_music" --output "%(playlist_index)s %(title)s.%(ext)s" $1
+    uvx --with yt-dlp-getpot-wpc yt-dlp -v $cookies_options $format_options --js-runtimes node --extractor-args "youtube:player-client=default,web_music" --split-chapters --output "chapter:%(section_number)02d %(section_title)s.%(ext)s" $1
 else
     echo "Usage: <command> <playlist-url> <output-directory>"
 fi

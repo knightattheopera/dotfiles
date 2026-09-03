@@ -63,6 +63,13 @@
 + /cs552/exercises/**
 + /cs552/**
 
+# 📽 CS-461: Foundation Models And Generative AI
+- /cs461/assignments/**
++ /cs461/**
+
+# 📽 COM-406: Foundations of Data Science
++ /com406/**
+
 # 🗄 HUM-337
 + /archive/hum337/**
 

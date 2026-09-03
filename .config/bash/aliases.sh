@@ -5,6 +5,7 @@ alias ls="LC_COLLATE=C ls --color=auto --group-directories-first"
 
 # scripts
 alias youtube-to-mp3-playlist=~/.config/bash/scripts/youtube-to-mp3-playlist.sh
+alias youtube-to-mp3-video=~/.config/bash/scripts/youtube-to-mp3-video.sh
 alias sync-home=~/.config/bash/scripts/sync-home.sh
 alias sync-backups=~/.config/bash/scripts/sync-backups.sh
 alias change-tex-snippets-directory=~/.config/bash/scripts/change-tex-snippets-directory.sh

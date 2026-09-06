@@ -1,8 +1,3 @@
-#!/usr/bin/env bash
-
-# ls aliases
-alias ls="LC_COLLATE=C ls --color=auto --group-directories-first"
-
 # scripts
 alias youtube-to-mp3-playlist=~/.config/bash/scripts/youtube-to-mp3-playlist.sh
 alias youtube-to-mp3-video=~/.config/bash/scripts/youtube-to-mp3-video.sh

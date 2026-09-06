@@ -2,3 +2,5 @@
 	editor = ~/.local/bin/vim
 [init]
 	defaultBranch = main
+[user]
+	useConfigOnly = true

@@ -8,27 +8,31 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# XDG base directory specification,see
+# https://specifications.freedesktop.org/basedir/latest/
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+
 # if running bash
-if [ -n "$BASH_VERSION" ]; then
+if [ -n "$BASH_VERSION" ] ; then
     # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
+    if [ -f "$HOME/.bashrc" ] ; then
         . "$HOME/.bashrc"
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+echo "Reading .profile"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-echo "Reading .profile"
-
-# Activate coursier
+# Setup coursier
 if [ -d "$HOME:/.local/share/coursier/bin" ] ; then
     export PATH="$PATH:$HOME/.local/share/coursier/bin"
     # >>> JVM installed by coursier >>>
@@ -37,44 +41,45 @@ if [ -d "$HOME:/.local/share/coursier/bin" ] ; then
     # <<< JVM installed by coursier <<<
 fi
 
-# Activate flutter
+# Setup flutter
 if [ -d "$HOME/development/flutter/bin" ] ; then
     export PATH="$HOME/development/flutter/bin:$PATH"
 fi
 
+# Setup nvm
 if [ -d "$HOME/.nvm" ] ; then
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# Activate ruby gems
+# Setup ruby gems
 if [ -d "$HOME/development/gems" ] ; then
     export GEM_HOME="$HOME/development/gems"
     export PATH="$HOME/development/gems/bin:$PATH"
 fi
 
-# Activate miniconda
+# Setup miniconda
 if [ -d "$HOME/development/miniconda3/bin" ] ; then
     export PATH="$HOME/development/miniconda3/bin:$PATH"
     eval "$('conda' 'shell.bash' 'hook')"
 fi
 
-# Activate Cangjie
+# Setup Cangjie
 if [ -f "$HOME/development/cangjie/1.0.0/envsetup.sh" ] ; then
-    source "$HOME/development/cangjie/1.0.0/envsetup.sh"
+    . "$HOME/development/cangjie/1.0.0/envsetup.sh"
 fi
 
-# Activate Swift
+# Setup Swift
 if [ -f "$HOME/.local/share/swiftly/env.sh" ] ; then
-    source "$HOME/.local/share/swiftly/env.sh"
+    . "$HOME/.local/share/swiftly/env.sh"
 fi
 
-# Activate go
+# Setup go
 if [ -d "$HOME/development/go/bin" ] ; then
     export PATH="$HOME/development/go/bin:$PATH"
 fi
 
-# opam configuration
+# Setup opam
 test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 

@@ -76,5 +76,11 @@
 # 🗄 HUM-429
 + /archive/hum429/**
 
+# 📽 MATH-700: Reasoning in Artifical Intelligence
++ /math700/**
+
+# 📽 Semester Project: Reasoning in Artificial Intelligence
++ /semester-project/**
+
 # Remove everything else
 - **

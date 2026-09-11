@@ -62,6 +62,9 @@ if [ -f "$XDG_CONFIG_HOME/bash/prompt-powerline.sh" ] ; then
     source "$XDG_CONFIG_HOME/bash/prompt-powerline.sh"
 fi
 
+# setup scripts environment
+[ -f "$HOME/scripts/env.sh" ] && source "$HOME/scripts/env.sh"
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

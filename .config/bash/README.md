@@ -30,3 +30,49 @@ This includes language environments, and the XDG base directories.
 
 On the other hand, `~/.bashrc` seems better suited for exporting variables
 that are either specific to `bash`, or that should have limited visibility.
+
+## Basic argument parsing
+
+A simple example of a `bash` argument parser:
+
+```bash
+POSITIONAL_ARGUMENTS=()
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --flag-1)
+            # process flag 1
+            flag_1=1
+            shift
+            ;;
+        --flag-2|--flag-3)
+            # process flag 2 or flag 3
+            flag_2_or_3="$1"
+            shift
+            ;;
+        --option-1)
+            value="$2"
+            # process the value
+            shift 2
+            ;;
+        --option-2|--option-3)
+            option_2_or_3="$1"
+            value="$2"
+            shift 2
+            ;;
+        --) # end of options
+            shift
+            break
+            ;;
+        -*)
+            echo "error: unkown option: $1"
+            exit 1
+            ;;
+        *)
+            # process positional argument
+            POSITIONAL_ARGUMENTS+=("$1")
+            shift
+            ;;
+    esac
+done
+```

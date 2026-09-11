@@ -16,6 +16,10 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ] ; then
@@ -26,11 +30,6 @@ if [ -n "$BASH_VERSION" ] ; then
 fi
 
 echo "Reading .profile"
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
 
 # Setup coursier
 if [ -d "$HOME:/.local/share/coursier/bin" ] ; then
